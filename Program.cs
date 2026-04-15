@@ -1,5 +1,3 @@
-using System;
-
 namespace ShoppingCartSystem
 {
     class Product
@@ -175,7 +173,6 @@ namespace ShoppingCartSystem
 
                 if (foundInCart != -1)
                 {
-                    // FIXED: check only new quantity against remaining stock
                     bool hasEnoughStock = selectedProduct.HasEnoughStock(quantity);
                     if (hasEnoughStock == false)
                     {
@@ -191,7 +188,6 @@ namespace ShoppingCartSystem
                 }
                 else
                 {
-                    // FIXED: >= instead of ==
                     if (cart.Count >= 10)
                     {
                         Console.WriteLine("Error: Cart is full. Cannot add more items.");
@@ -269,3 +265,4 @@ namespace ShoppingCartSystem
         }
     }
 }
+
