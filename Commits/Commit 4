@@ -1,0 +1,66 @@
+string userInput = Console.ReadLine();
+
+                int productNumber;
+                bool isNumber = int.TryParse(userInput, out productNumber);
+
+                if (isNumber == false)
+                {
+                    Console.WriteLine("Error: PLease Enter number only");
+                    continue;
+                }
+                if (productNumber == 0)
+                {
+                    break;
+                }
+                Product selectedProduct = null;
+                for (int i = 0; i < 4; i++)
+                {
+                    if (storeMenu[i].Id == productNumber)
+                    {
+                        selectedProduct = storeMenu[i];
+                        break;
+                    }
+                }
+                if (selectedProduct == null)
+                {
+                    Console.WriteLine("Error: Product number does not exist");
+                    continue;
+                }
+
+                if (selectedProduct.RemainingStock == 0)
+                {
+                    System.Console.WriteLine("Error: Product is out of stock");
+                    continue;
+                }
+
+                System.Console.WriteLine("Enter quantity: ");
+                string quantityInput = Console.ReadLine();
+                int quantity;
+                bool isQuantityNumber = int.TryParse(quantityInput, out quantity);
+                if (isQuantityNumber == false)
+                {
+                    Console.WriteLine("Error: Please enter number only");
+                    continue;
+                }
+                if (quantity <= 0)
+                {
+                    Console.WriteLine("Error: Quantity must be 1 or more");
+                    continue;
+                }
+
+                bool enoughStock = selectedProduct.HasEnoughStock(quantity);
+                if (enoughStock == false)
+                {
+                    Console.WriteLine("Error: Not enough stock" + selectedProduct.RemainingStock + "available");
+                    continue;
+                }
+
+                int foundInCart = -1;
+                for (int i = 0; i < cart.Count; i++)
+                {
+                    if (cart[i].Product.Id == selectedProduct.Id)
+                    {
+                        foundInCart = i;
+                        break;
+                    }
+                }
