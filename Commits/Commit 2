@@ -1,0 +1,26 @@
+ public bool HasEnoughStock(int quantity)
+        {
+            if (RemainingStock >= quantity)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public double GetItemTotal(int quantity)
+        {
+            return Price * quantity;
+        }
+        public void ReduceStock(int quantity)
+        {
+            RemainingStock = RemainingStock - quantity;
+        }
+    }
+
+    class Cartitem
+    {
+        public Product Product;
+        public int Quantity;
+        public double Subtotal;
