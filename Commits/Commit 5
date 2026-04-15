@@ -1,0 +1,96 @@
+if (foundInCart != -1)
+                {
+                    // FIXED: check only new quantity against remaining stock
+                    bool hasEnoughStock = selectedProduct.HasEnoughStock(quantity);
+                    if (hasEnoughStock == false)
+                    {
+                        System.Console.WriteLine("Error: You already have " + cart[foundInCart].Quantity + " in your cart. Adding " + quantity + " more would exceed stock.");
+                        System.Console.WriteLine("Maximum you can add: " + selectedProduct.RemainingStock);
+                        continue;
+                    }
+                    int newTotalQuantity = cart[foundInCart].Quantity + quantity;
+                    cart[foundInCart].Addmore(quantity);
+                    selectedProduct.ReduceStock(quantity);
+                    Console.WriteLine("SUCCESS: Updated cart! Now you have " + newTotalQuantity + " " + selectedProduct.Name);
+                    Console.WriteLine("Subtotal: $" + cart[foundInCart].Subtotal);
+                }
+                else
+                {
+                    // FIXED: >= instead of ==
+                    if (cart.Count >= 10)
+                    {
+                        Console.WriteLine("Error: Cart is full. Cannot add more items.");
+                        continue;
+                    }
+                    Cartitem newItem = new Cartitem(selectedProduct, quantity);
+                    cart.Add(newItem);
+                    selectedProduct.ReduceStock(quantity);
+                    Console.WriteLine("Success: Added to cart!");
+                    Console.WriteLine(" " + quantity + " x " + selectedProduct.Name + " = $" + newItem.Subtotal);
+                }
+                Console.WriteLine("");
+                Console.Write("Continue shopping? (Y/N): ");
+                string answer = Console.ReadLine();
+                answer = answer.ToUpper();
+                if (answer == "N")
+                {
+                    keepShopping = false;
+                }
+            }
+            Console.WriteLine("");
+            Console.WriteLine("================================");
+            Console.WriteLine("RECEIPT");
+            Console.WriteLine("================================");
+            Console.WriteLine("Item Qty Price Total");
+            Console.WriteLine("-----------------------------------");
+            double grandTotal = 0;
+            for (int i = 0; i < cart.Count; i++)
+            {
+                string itemName = cart[i].Product.Name;
+                int itemQty = cart[i].Quantity;
+                double itemPrice = cart[i].Product.Price;
+                double itemTotal = cart[i].Subtotal;
+                grandTotal = grandTotal + itemTotal;
+                Console.Write(itemName);
+                int nameLength = itemName.Length;
+                int spacesNeeded = 18 - nameLength;
+                for (int s = 0; s < spacesNeeded; s++)
+                {
+                    Console.Write(" ");
+                }
+                Console.Write(itemQty + "     ");
+                Console.Write("$" + itemPrice + "    ");
+                Console.WriteLine("$" + itemTotal);
+            }
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("GRAND TOTAL: $" + grandTotal);
+            double finalTotal = grandTotal;
+            double discount = 0;
+            if (grandTotal >= 5000)
+            {
+                discount = grandTotal * 0.10;
+                finalTotal = grandTotal - discount;
+                Console.WriteLine("DISCOUNT (10%): -$" + discount);
+                Console.WriteLine("-----------------------------------");
+                Console.WriteLine("FINAL TOTAL: $" + finalTotal);
+            }
+            Console.WriteLine("===================================");
+            Console.WriteLine("");
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine(storeMenu[i].Name + ": " + storeMenu[i].RemainingStock + " left");
+            }
+            Console.WriteLine("Thank you for shopping with us!");
+            Console.WriteLine("Press any key to exit...");
+            try
+            {
+                Console.ReadKey();
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("Press Enter to exit...");
+                Console.ReadLine();
+            }
+        }
+    }
+}
