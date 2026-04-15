@@ -13,12 +13,19 @@ AI was only used to help make the flowchart, organize the documentation, check t
 
 Ai prompts
 -the code is running because of code failure what could be the cause and how should i fix this
+
 -Unhandled exception. System.InvalidOperationException: Cannot read keys when either application does not have a console or when console input has been redirected. Try Console.Read. how can i fix this
+
 -How do I use int.TryParse() for input validation in C# instead of 
 Convert.ToInt32()? Show me examples with error handling.
+
 -Explain how to check for duplicate items in a cart array and update 
 quantity instead of adding a new entry.
+
 -How do I declare an array that holds 5 products?
+
 -How do I loop through the array to display all products?
+
 -How do I calculate subtotal in the constructor?
+
 -How do I update quantity and recalculate subtotal?
