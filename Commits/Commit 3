@@ -1,0 +1,57 @@
+ class Cartitem
+    {
+        public Product Product;
+        public int Quantity;
+        public double Subtotal;
+
+        public Cartitem(Product product, int quantity)
+        {
+            Product = product;
+            Quantity = quantity;
+            Subtotal = product.Price * quantity;
+        }
+
+        public void Addmore(int AditionalItems)
+        {
+            Quantity = Quantity + AditionalItems;
+            Subtotal = Product.Price * Quantity;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Product product1 = new Product(1, "Gym-Shorts", 599.00, 20);
+            Product product2 = new Product(2, "Gym-Shirts", 799.00, 15);
+            Product product3 = new Product(3, "Gym-Accesories", 399.00, 10);
+            Product product4 = new Product(4, "Gym-Bags", 699.00, 8);
+
+            Product[] storeMenu = new Product[4];
+            storeMenu[0] = product1;
+            storeMenu[1] = product2;
+            storeMenu[2] = product3;
+            storeMenu[3] = product4;
+
+            List<Cartitem> cart = new List<Cartitem>();
+
+            bool keepShopping = true;
+
+            Console.WriteLine("=================================");
+            Console.WriteLine("Welcome to the Resurgo Gym Store!");
+            Console.WriteLine("=================================");
+
+            while (keepShopping == true)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("================================");
+                Console.WriteLine("STORE MENU");
+                Console.WriteLine("================================");
+                for (int i = 0; i < 4; i++)
+                {
+                    storeMenu[i].DisplayProduct();
+                }
+                Console.WriteLine("================================");
+                Console.WriteLine("Enter 0 to finish shopping");
+                Console.WriteLine("");
+                Console.WriteLine("Enter product number");
