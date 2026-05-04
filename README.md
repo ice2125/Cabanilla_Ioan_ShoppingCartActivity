@@ -1,8 +1,8 @@
-Cabanilla_Ioan_ShoppingCartActivity_Part_2
-Student: Cabanilla, Ioan Rayne J.
-Course: BSIT 1-2
+### Cabanilla_Ioan_ShoppingCartActivity_Part_2
+##Student: Cabanilla, Ioan Rayne J.
+##Course: BSIT 1-2
 
-About the Project
+#About the Project
 
 This is a Shopping Cart System made in C#. It runs in the console and shows how to use classes, objects, and arrays in a real program. It also has input validation, stock tracking, and a discount system.
 
