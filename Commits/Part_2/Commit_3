@@ -1,0 +1,24 @@
+// Replaced: Console.Write("Continue shopping? (Y/N): ");
+// With: Cart Menu system
+Console.WriteLine("1. Keep shopping");
+Console.WriteLine("2. Go to Cart Menu");
+
+// Cart Menu options
+Console.WriteLine("1. View Cart");
+Console.WriteLine("2. Remove Item");
+Console.WriteLine("3. Update Quantity");
+Console.WriteLine("4. Clear Cart");
+Console.WriteLine("5. Checkout");
+
+// Remove item with stock restore and array shift
+cart[removeIndex - 1].Product.RemainingStock += cart[removeIndex - 1].Quantity;
+for (int s = removeIndex - 1; s < cartItemCount - 1; s++) 
+    cart[s] = cart[s + 1];
+cart[cartItemCount - 1] = null; 
+cartItemCount--;
+
+// Update quantity with diff calculation
+int diff = newQty - cart[updateIndex - 1].Quantity;
+cart[updateIndex - 1].Product.ReduceStock(diff);
+cart[updateIndex - 1].Quantity = newQty;
+cart[updateIndex - 1].Subtotal = cart[updateIndex - 1].Product.Price * newQty;
