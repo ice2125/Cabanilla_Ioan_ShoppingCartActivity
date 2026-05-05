@@ -1,0 +1,21 @@
+// Global total items limit check
+int totalNow = GetTotalItems(cart);
+if (totalNow + quantity > MAX_TOTAL_ITEMS)
+{
+    Console.WriteLine("Error: Cannot add items. Cart total would exceed maximum of " + MAX_TOTAL_ITEMS);
+    continue;
+}
+
+// Stock restore on clear
+for (int i = 0; i < cartItemCount; i++) 
+{ 
+    cart[i].Product.RemainingStock += cart[i].Quantity; 
+    cart[i] = null; 
+}
+
+// Prevent negative stock
+public void ReduceStock(int quantity)
+{
+    RemainingStock -= quantity;
+    if (RemainingStock < 0) RemainingStock = 0;
+}
