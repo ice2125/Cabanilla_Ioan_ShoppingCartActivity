@@ -1,0 +1,11 @@
+// Fixed spacing with Math.Max
+int spacesNeeded = Math.Max(1, 18 - itemName.Length);
+
+// Cleaned up Addmore parameter
+public void Addmore(int add)  // was: int AditionalItems
+
+// Proper array slot counting
+cartItemCount = 0; 
+for (int c = 0; c < cart.Length; c++) 
+    if (cart[c] != null) 
+        cartItemCount++;

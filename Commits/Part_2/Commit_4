@@ -1,0 +1,15 @@
+// Receipt numbering and timestamp
+Console.WriteLine("Receipt No: " + receiptNum.ToString("D4"));
+Console.WriteLine("Date: " + DateTime.Now.ToString("MMMM dd, yyyy h:mm tt"));
+
+// Payment loop with validation
+double payment;
+do
+{
+    Console.Write("Enter payment: $");
+    double.TryParse(Console.ReadLine(), out payment);
+    if (payment < finalTotal) Console.WriteLine("Insufficient payment.");
+} while (payment < finalTotal);
+
+Console.WriteLine("PAYMENT: $" + payment);
+Console.WriteLine("CHANGE: $" + (payment - finalTotal));

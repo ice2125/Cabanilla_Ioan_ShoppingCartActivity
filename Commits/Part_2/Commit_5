@@ -1,0 +1,23 @@
+// Order class and history array
+class Order
+{
+    public string Receipt;
+    public double Total;
+}
+
+Order[] history = new Order[MAX_HISTORY];
+int histCount = 0;
+
+// Store completed order
+history[histCount++] = new Order(receiptNum.ToString("D4"), finalTotal);
+
+// Low stock alerts
+for (int i = 0; i < storeMenu.Length; i++)
+{
+    if (storeMenu[i].RemainingStock <= 5)
+        Console.WriteLine("LOW STOCK: " + storeMenu[i].Name + " has only " + storeMenu[i].RemainingStock + " left.");
+}
+
+// Display history
+for (int i = 0; i < histCount; i++) 
+    Console.WriteLine("Receipt #" + history[i].Receipt + " - Final Total: $" + history[i].Total);

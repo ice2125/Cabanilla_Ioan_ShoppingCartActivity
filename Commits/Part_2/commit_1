@@ -1,0 +1,17 @@
+// BEFORE: Used List<Cartitem>
+List<Cartitem> cart = new List<Cartitem>();
+
+// AFTER: Switched to arrays with fixed limits
+const int MAX_CART_SLOTS = 10;
+const int MAX_TOTAL_ITEMS = 10;
+const int MAX_HISTORY = 100;
+Cartitem[] cart = new Cartitem[MAX_CART_SLOTS];
+
+// Added Category to Product
+public string Category;
+public Product(int id, string name, double price, int remainingStock, string category)
+
+// Built helper methods
+static int GetTotalItems(Cartitem[] cart) { ... }
+static int FindInCart(Cartitem[] cart, int productId, int cartCount) { ... }
+static int FindFirstEmptySlot(Cartitem[] cart) { ... }

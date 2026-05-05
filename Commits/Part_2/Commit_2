@@ -1,0 +1,22 @@
+// Added to main menu
+Console.WriteLine("Enter -2 to filter by category");
+Console.WriteLine("Enter -1 to search products");
+
+// Category filter
+if (productNumber == -2)
+{
+    Console.WriteLine("1. Clothing  2. Accessories");
+    string category = catChoice == "1" ? "Clothing" : "Accessories";
+    for (int i = 0; i < storeMenu.Length; i++) 
+        if (storeMenu[i].Category == category) 
+            storeMenu[i].DisplayProduct();
+}
+
+// Product search
+if (productNumber == -1)
+{
+    string search = Console.ReadLine().ToLower();
+    for (int i = 0; i < storeMenu.Length; i++)
+        if (storeMenu[i].Name.ToLower().Contains(search))
+            storeMenu[i].DisplayProduct();
+}
