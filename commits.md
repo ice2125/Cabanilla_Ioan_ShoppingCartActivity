@@ -1,8 +1,3 @@
-# 4-Day Commit Summary
-
-## Day 1 - Convert fields to properties
-**Files changed:** `Program.cs`
-
 **Changes:**
 - Replaced public fields with properties (example: `public int RemainingStock` -> `public int RemainingStock { get; private set; }`).
 - Added `ReduceStock(int)` and `AddStock(int)` to manage stock safely.
