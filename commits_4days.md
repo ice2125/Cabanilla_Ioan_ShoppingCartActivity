@@ -8,7 +8,7 @@
 - Added `ReduceStock(int)` and `AddStock(int)` to manage stock safely.
 - Added property accessors for `Id`, `Name`, `Price`, `Category`.
 
-**Code examples (Day 1):**
+**Code examples:**
 
 **Before:**
 ```csharp
@@ -75,8 +75,3 @@ public class Product
     public void Addmore(int add) { if (add <= 0) return; Quantity += add; Subtotal = Product.Price * Quantity; }
     public void SetQuantity(int newQty) { if (newQty < 0) return; Quantity = newQty; Subtotal = Product.Price * newQty; }
     ```
-
-    Notes:
-    - This file focuses only on code edits in `Program.cs` (no documentation or other files).
-    - Changes emphasize encapsulation and safer state updates while keeping overall program behavior intact.
-- Removed inline `//` comments across file.
