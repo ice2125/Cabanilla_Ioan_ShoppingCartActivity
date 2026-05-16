@@ -1,4 +1,4 @@
-### Cabanilla_Ioan_ShoppingCartActivity_Part_2
+### Cabanilla_Ioan_ShoppingCartActivity_Part_3
 ## Student: Cabanilla, Ioan Rayne J.
 ## Course: BSIT 1-2
 
@@ -36,5 +36,3 @@ FAQ / developer questions:
 - How do I loop through the array to display all products? Use a `for` or `foreach` loop over the `storeMenu` array and call `DisplayProduct()` on each element.
 - How do I calculate the subtotal in the constructor? Multiply `product.Price * quantity` and assign to the `Subtotal` property inside the `Cartitem` constructor.
 - How do I update the quantity and recalculate the subtotal? Use `Cartitem.SetQuantity(newQty)` or `Cartitem.Addmore(add)` which update `Quantity` and recompute `Subtotal`.
-
--- End of README
